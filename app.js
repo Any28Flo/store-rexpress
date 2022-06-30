@@ -7,12 +7,12 @@ const port = 3000;
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 // declare a middleware to parse incoming request
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // middleware
 // called next function
 app.use('/', (req, res, next) => {
-  next();
+    next();
 });
 // routes
 // adding filtering paths
@@ -21,9 +21,9 @@ app.use(shopRoutes);
 
 // default route
 app.use('*', (req, res) => {
-  res.status(404).send('<h1>404 PAGE</h1>');
+    res.status(404).send('<h1>404 PAGE</h1>');
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
