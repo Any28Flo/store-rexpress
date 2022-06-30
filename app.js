@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 3000;
@@ -21,7 +22,7 @@ app.use(shopRoutes);
 
 // default route
 app.use('*', (req, res) => {
-    res.status(404).send('<h1>404 PAGE</h1>');
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 app.listen(port, () => {
